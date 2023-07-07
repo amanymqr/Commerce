@@ -51,7 +51,12 @@
             }
         </style>
     @endif
-
+    <style>
+        .table td,
+        .table th {
+            vertical-align: middle
+        }
+    </style>
 </head>
 
 <body id="page-top">

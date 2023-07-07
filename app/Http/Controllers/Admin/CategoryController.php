@@ -72,17 +72,44 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $categories = Category::all();
+        $category = Category::findOrFail($id);
+        return view('admin.categories.edit', compact('categories', 'category'));
     }
+
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,  $id)
     {
-        //
+         // Validate Data
+            $request->validate([
+            'name_en' => 'required',
+            'name_ar' => 'required',
+            'parent_id' => 'nullable|exists:categories,id',
+        ]);
+
+        $category = Category::findOrFail($id);
+
+        // Upload File
+        $img_name = $category->image;
+        if($request->hasFile('image')) {
+            $img_name = rand() . time() . $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path('uploads/categories'), $img_name);
+        }
+
+        // Insert To Database
+        $category->update([
+            'name' => $request->name_en . ' ' . $request->name_ar,
+            'image' => $img_name,
+            'parent_id' => $request->parent_id
+        ]);
+
+        // Redirect
+        return redirect()->route('admin.categories.index')->with('msg', 'Category updated successfully')->with('type', 'info');
     }
 
     /**

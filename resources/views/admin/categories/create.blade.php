@@ -1,25 +1,30 @@
 @extends('admin.master')
-@section('title', 'categories|' . env('APP_NAME'))
+
+@section('title', 'Create Category | ' . env('APP_NAME'))
+
 @section('content')
-    <h1 class="h3 mb-4 text-grey">Add New Category </h1>
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Create New Category</h1>
 
     @if (session('msg'))
         <div class="alert alert-{{ session('type') }}">
-        {{  session('msg')}}
+            {{ session('msg') }}
         </div>
     @endif
 
-@include('admin.error')
+    @include('admin.error')
+
     <form action="{{ route('admin.categories.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
+
         <div class="mb-3">
-            <label >English Name</label>
-            <input type="text" name="name_en" placeholder="English Name" class="form-control">
+            <label>English Name</label>
+            <input type="text" name="name_en" placeholder="English Name" class="form-control" />
         </div>
 
         <div class="mb-3">
-            <label >Arabic Name</label>
-            <input type="text" name="name_ar" placeholder="Arabic Name" class="form-control">
+            <label>Arabic Name</label>
+            <input type="text" name="name_ar" placeholder="Arabic Name" class="form-control" />
         </div>
 
         <div class="mb-3">
@@ -28,17 +33,17 @@
         </div>
 
         <div class="mb-3">
-            <label >Parent Id</label>
-            <select class="form-control">
+            <label>Parent</label>
+            <select name="parent_id" class="form-control">
                 <option value="">Select</option>
-            @foreach ($categories as $category )
-                <option value="{{ $category->id }}">{{ $category->name }}</option>
-            @endforeach
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
             </select>
-
         </div>
 
-<button class="btn btn-primary w-100">Add</button>
+        <button class="btn btn-primary w-100">Add</button>
+
 
     </form>
 
