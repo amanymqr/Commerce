@@ -24,4 +24,22 @@ class Category extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+public function getTransNameAttribute() {
+    if($this->name){
+        return json_decode($this->name ,true)[app()->currentLocale()];
+    }return $this->name;
+}
+
+public function getNameEnAttribute() {
+    if($this->name){
+        return json_decode($this->name ,true)['en'];
+    }return $this->name;
+}
+
+public function getNameArAttribute() {
+    if($this->name){
+        return json_decode($this->name ,true)['ar'];
+    }return $this->name;
+}
 }

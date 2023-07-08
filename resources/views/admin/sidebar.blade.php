@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('site.index') }}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.index') }}">
         <div class="sidebar-brand-icon">
             <i class="fas fa-store"></i>
         </div>
@@ -16,7 +16,7 @@
     <li class="nav-item">
         <a class="nav-link" href="{{ route('admin.index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>{{ __('site.dashboard') }}</span></a>
+            <span>{{ __('admin.dashboard') }}</span></a>
     </li>
 
     <!-- Divider -->
@@ -27,7 +27,7 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategory"
             aria-expanded="true" aria-controls="collapseCategory">
             <i class="fas fa-fw fa-tags"></i>
-            <span>{{ __('site.categories') }}</span>
+            <span>{{ __('admin.categories') }}</span>
         </a>
         {{-- http://127.0.0.1:8000/admin/categories
         http://127.0.0.1:8000/admin/categories/create
@@ -48,7 +48,7 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduct"
             aria-expanded="true" aria-controls="collapseProduct">
             <i class="fas fa-fw fa-heart"></i>
-            <span>{{ __('site.products') }}</span>
+            <span>{{ __('admin.products') }}</span>
         </a>
         <div id="collapseProduct" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -64,7 +64,7 @@
     <li class="nav-item">
         <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-cart-plus"></i>
-            <span>{{ __('site.orders') }}</span></a>
+            <span>{{ __('admin.orders') }}</span></a>
     </li>
 
     <!-- Divider -->
@@ -73,7 +73,7 @@
     <li class="nav-item">
         <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-money-bill"></i>
-            <span>{{ __('site.payments') }}</span></a>
+            <span>{{ __('admin.payments') }}</span></a>
     </li>
 
     <!-- Divider -->
@@ -82,7 +82,7 @@
     <li class="nav-item">
         <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-users"></i>
-            <span>{{ __('site.users') }}</span></a>
+            <span>{{ __('admin.users') }}</span></a>
     </li>
 
     <!-- Divider -->

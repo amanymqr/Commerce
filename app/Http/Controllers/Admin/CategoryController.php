@@ -100,10 +100,16 @@ class CategoryController extends Controller
             $img_name = rand() . time() . $request->file('image')->getClientOriginalName();
             $request->file('image')->move(public_path('uploads/categories'), $img_name);
         }
+      // convert name to json
+        $name = json_encode([
+        'en' => $request->name_en,
+        'ar' => $request->name_ar,
+        ], JSON_UNESCAPED_UNICODE);
+
 
         // Insert To Database
         $category->update([
-            'name' => $request->name_en . ' ' . $request->name_ar,
+            'name' => $name,
             'image' => $img_name,
             'parent_id' => $request->parent_id
         ]);
