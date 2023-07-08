@@ -2,12 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\Trans;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory,Trans;
     protected $guarded=[];
     // protected $fillable=['name' , 'image' ,'parent_id'];
     //الحقول المسموحة تعدي
@@ -25,21 +27,5 @@ class Category extends Model
         return $this->hasMany(Product::class);
     }
 
-public function getTransNameAttribute() {
-    if($this->name){
-        return json_decode($this->name ,true)[app()->currentLocale()];
-    }return $this->name;
-}
 
-public function getNameEnAttribute() {
-    if($this->name){
-        return json_decode($this->name ,true)['en'];
-    }return $this->name;
-}
-
-public function getNameArAttribute() {
-    if($this->name){
-        return json_decode($this->name ,true)['ar'];
-    }return $this->name;
-}
 }
