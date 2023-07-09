@@ -1,5 +1,4 @@
 @extends('admin.master')
-
 @section('title', 'Productes | ' . env('APP_NAME'))
 
 @section('content')
@@ -38,7 +37,7 @@
             <td>{{ $product->price }}</td>
             <td>{{ $product->sale_price }}</td>
             <td>{{ $product->quantity }}</td>
-            <td>{{ $product->category_id }}</td>
+            <td>{{ $product->category->trans_name }}</td>
 
             <td>{{ $product->created_at ? $product->created_at->diffForHumans() : '' }}</td>
             <td>

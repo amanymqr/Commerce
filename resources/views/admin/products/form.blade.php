@@ -64,10 +64,10 @@
     <div class="col-md-4">
 
 
-        <div class="mb-3">
+        < class="mb-3">
             <label for="quantity" >Quantity</label>
             <input type="text" id="quantity" name="quantity" class="form-control"  placeholder="quantity" value="{{ $product->quantity}}"/>
-        </div>
+        </ div>
     </div>
 </div>
 
@@ -77,9 +77,8 @@
     <label>Category</label>
     <select name="category_id" class="form-control">
         <option value="">Select</option>
-        @foreach ($categories as $category)
-            <option value="{{ $category->id }}">{{ $category->trans_name }}</option>
+        @foreach ($categories as $item)
+            <option @selected($product->category_id == $item->id) value="{{ $item->id }}">{{ $item->trans_name }}</option>
         @endforeach
     </select>
 </div>
-
