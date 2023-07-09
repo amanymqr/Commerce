@@ -29,10 +29,7 @@
             <i class="fas fa-fw fa-tags"></i>
             <span>{{ __('admin.categories') }}</span>
         </a>
-        {{-- http://127.0.0.1:8000/admin/categories
-        http://127.0.0.1:8000/admin/categories/create
-        http://127.0.0.1:8000/admin/categories/1/edit --}}
-        {{-- {{ str_contains(request()->url(), 'categories') }} --}}
+
         <div id="collapseCategory" class="collapse {{ str_contains(request()->url(), 'categories') ? 'show' : '' }} " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <a class="collapse-item {{ request()->routeIs('admin.categories.index') ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">All categories</a>
@@ -81,8 +78,8 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
-    <li class="nav-item">
-        <a class="nav-link" href="index.html">
+    <li class="nav-item {{ request()->routeIs('admin.users.index')?'active':''}}">
+        <a class="nav-link" href="{{ route('admin.users.index') }}">
             <i class="fas fa-fw fa-users"></i>
             <span>{{ __('admin.users') }}</span></a>
     </li>

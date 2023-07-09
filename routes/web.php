@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\CategoryController;
@@ -18,7 +20,8 @@ Route::prefix(LaravelLocalization::setLocale())->group(function ()
     Route::resource('categories',CategoryController::class);
     Route::resource('products',ProductController::class);
     Route::get('delete-image/{id}', [ProductController::class, 'delete_image'])->name('products.delete_image');
-
+    Route::get('users', [UserController::class, 'index'])->name('users.index');
+    Route::delete('users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
     });
 });
 // Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
