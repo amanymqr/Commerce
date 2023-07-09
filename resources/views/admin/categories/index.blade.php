@@ -46,5 +46,5 @@
         @endforeach
     </tbody>
 </table>
-
+{{ $categories->links() }}
 @stop
