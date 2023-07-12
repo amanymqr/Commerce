@@ -34,19 +34,17 @@
             <div class="col-md-6">
                 <div class="category-box">
                     <a href="#!">
-                        <img src="{{ asset('siteassets/images/shop/category/category-1.jpg') }}" alt="" />
+                        <img src="{{ asset('uploads/categories/'.$categories[0]->image) }}" alt="" />
                         <div class="content">
-                            <h3>Clothes Sales</h3>
-                            <p>Shop New Season Clothing</p>
+                            <h3>{{ $categories[0]->trans_name }}</h3>
                         </div>
                     </a>
                 </div>
                 <div class="category-box">
                     <a href="#!">
-                        <img src="{{ asset('siteassets/images/shop/category/category-2.jpg') }}" alt="" />
+                        <img src="{{ asset('uploads/categories/'.$categories[1]->image) }}" alt="" />
                         <div class="content">
-                            <h3>Smart Casuals</h3>
-                            <p>Get Wide Range Selection</p>
+                            <h3>{{ $categories[1]->trans_name }}</h3>
                         </div>
                     </a>
                 </div>
@@ -54,10 +52,9 @@
             <div class="col-md-6">
                 <div class="category-box category-box-2">
                     <a href="#!">
-                        <img src="{{ asset('siteassets/images/shop/category/category-3.jpg') }}" alt="" />
+                        <img src="{{ asset('uploads/categories/'.$categories[2]->image) }}" alt="" />
                         <div class="content">
-                            <h3>Jewellery</h3>
-                            <p>Special Design Comes First</p>
+                            <h3>{{ $categories[2]->trans_name }}</h3>
                         </div>
                     </a>
                 </div>
